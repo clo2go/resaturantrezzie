@@ -2,6 +2,7 @@ var express = require('express')
 var bodyParser = require('body-parser')
 
 var app = express()
+var PORT = process.env.PORT || 8000;
  
 app.get('/', function (req, res) {
   res.send('Hello World')
@@ -20,5 +21,6 @@ app.use(function (req, res) {
 })
 
 
-app.listen(3000)
-console.log('This app is running hard AF on local 3000');
+app.listen(PORT, function(){
+	console.log("This app is running hard AF on PORT: " + PORT);
+});
