@@ -77,5 +77,40 @@
 
 	</div>
 
+	<script type="text/javascript">
+
+	$(".submit").on("click", function() {
+		var newReservation = {
+			customerName: $('#reserve_name').val().trim(),
+			phoneNumber: $('#reserve_phone').val().trim(),
+			customerEmail: $('#reserve_email').val().trim(),
+			customerID: $('#reserve_uniqueID').val().trim()
+		};
+
+		console.log(newReservation);
+
+		var currentURL = window.location.origin;
+
+		$.post(currentURL + "/api/tables", newReservation, function(data){
+
+			if (data == true) {
+				alert("You're in! You on the list!");
+			}
+			if (data == false) {
+				alert("Sorry, you're on the waitlist with the normies.");
+			}
+			
+			$('reserve_name').val("");
+			$('reserve_phone').val("");
+			$('reserve_email').val("");
+			$('reserve_uniqueID').val("");
+		});
+
+		return false;
+
+	});
+
+	</script>
+
 </body>
 </html>

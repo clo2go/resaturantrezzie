@@ -1,5 +1,6 @@
-var express = require('express')
-var bodyParser = require('body-parser')
+
+var bodyParser = require('body-parser');
+var express = require('express');
 var path = require('path');
 
 var app = express()
@@ -11,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json 
 app.use(bodyParser.json())
 
+require('./app/routing/api-routes.js')(app);
 require('./app/routing/html-routes.js')(app);
 
 
