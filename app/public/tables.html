@@ -64,6 +64,7 @@
 <script type="text/javascript">
 
 	function runTableQuery() {
+		
 		var currentURL = window.location.origin;
 
 		$.ajax({url: currentURL + "/api/tables", method: "GET"})
@@ -86,7 +87,7 @@
 
 				var tableNumber = i + 1;
 
-				$("tableWell-" + i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " +tableData[i].customerID + "</h2>");
+				$("#tableWell-" + i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " +tableData[i].customerID + "</h2>");
 			}
 		});
 	}
@@ -114,7 +115,7 @@ function runWaitListQuery() {
 
 				var tableNumber = i + 1;
 
-				$("tableWell-" + i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " +waitListData[i].customerID + "</h2>");
+				$("#waitlistWell-" + i+1).append('<h2><span class="label label-primary">' + tableNumber + "</span> | " +waitListData[i].customerID + "</h2>");
 			}
 		});
 	}
